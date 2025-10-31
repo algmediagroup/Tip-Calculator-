@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>15% Tip Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 350px;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      font-size: 1.1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    button {
+      width: 85%;
+      padding: 12px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    p {
+      margin-top: 20px;
+      font-size: 1.1em;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>15% Tip Calculator</h2>
+    <input type="number" id="bill" placeholder="Enter bill amount" step="0.01">
+    <button onclick="calculateTip()">Calculate Tip</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function calculateTip() {
+      const bill = parseFloat(document.getElementById("bill").value);
+      if (isNaN(bill)) {
+        document.getElementById("result").textContent = "Please enter a valid number.";
+        return;
+      }
+      const tip = bill * 0.15;
+      const total = bill + tip;
+      document.getElementById("result").textContent =
+        `Tip (15%): $${tip.toFixed(2)} | Total: $${total.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
